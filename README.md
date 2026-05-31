@@ -138,8 +138,6 @@ kube-scheduler-athena-control-plane            1/1     Running   0          3m
 
 📸 Screenshot: [`docs/screenshots/day-01-cluster-up.png`](./docs/screenshots/day-01-cluster-up.png)
 
-image.png
-
 ---
 
 ## 📁 Project Structure
