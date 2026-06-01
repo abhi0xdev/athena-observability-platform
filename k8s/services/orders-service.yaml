@@ -25,7 +25,7 @@ spec:
           value: "http://checkout-api:8000/checkout"
 
         - name: OTEL_EXPORTER_OTLP_ENDPOINT
-          value: "http://otel-collector:4317"
+          value: "http://otel-collector-opentelemetry-collector.observability.svc.cluster.local:4317"
 
         readinessProbe:
           httpGet:
