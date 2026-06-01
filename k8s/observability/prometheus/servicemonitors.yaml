@@ -1,0 +1,58 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: checkout-api
+  namespace: observability
+  labels:
+    release: kube-prom-stack
+spec:
+  selector:
+    matchLabels:
+      app: checkout-api
+  namespaceSelector:
+    matchNames:
+    - default
+  endpoints:
+  - port: http
+    path: /metrics
+    interval: 15s
+
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: orders-service
+  namespace: observability
+  labels:
+    release: kube-prom-stack
+spec:
+  selector:
+    matchLabels:
+      app: orders-service
+  namespaceSelector:
+    matchNames:
+    - default
+  endpoints:
+  - port: http
+    path: /metrics
+    interval: 15s
+
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: payments-worker
+  namespace: observability
+  labels:
+    release: kube-prom-stack
+spec:
+  selector:
+    matchLabels:
+      app: payments-worker
+  namespaceSelector:
+    matchNames:
+    - default
+  endpoints:
+  - port: http
+    path: /metrics
+    interval: 15s
