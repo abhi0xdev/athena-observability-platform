@@ -140,7 +140,7 @@ async def checkout():
     time.sleep(sleep_time)
 
     # Simulate intermittent failures (~10%)
-    if random.random() < 0.10:
+    if random.random() < 0.8:
         checkout_processing_duration_seconds.observe(
             time.time() - start
         )

@@ -1,0 +1,63 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+
+metadata:
+  name: checkout-api-slo
+  namespace: observability
+  labels:
+    role: kube-prom-stack
+
+spec:
+  groups:
+    - name: checkout-api-slo
+      interval: 30s
+      rules:
+
+        - record: sli:checkout_api_availability:ratio_rate5m
+          expr: |
+            sum(rate(http_requests_total{service="checkout-api",status!~"5.."}[5m]))
+            /
+            sum(rate(http_requests_total{service="checkout-api"}[5m]))
+
+        - record: sli:checkout_api_availability:ratio_rate30m
+          expr: |
+            sum(rate(http_requests_total{service="checkout-api",status!~"5.."}[30m]))
+            /
+            sum(rate(http_requests_total{service="checkout-api"}[30m]))
+
+        - record: sli:checkout_api_availability:ratio_rate1h
+          expr: |
+            sum(rate(http_requests_total{service="checkout-api",status!~"5.."}[1h]))
+            /
+            sum(rate(http_requests_total{service="checkout-api"}[1h]))
+
+        - record: sli:checkout_api_availability:ratio_rate6h
+          expr: |
+            sum(rate(http_requests_total{service="checkout-api",status!~"5.."}[6h]))
+            /
+            sum(rate(http_requests_total{service="checkout-api"}[6h]))
+        - alert: CheckoutAPI_ErrorBudget_FastBurn
+          expr: |
+            (1 - sli:checkout_api_availability:ratio_rate5m) > (14.4 * 0.005)
+            and
+            (1 - sli:checkout_api_availability:ratio_rate1h) > (14.4 * 0.005)
+          for: 2m
+          labels:
+            severity: critical
+            slo: checkout-api-availability
+          annotations:
+            summary: "checkout-api burning error budget at 14.4x rate"
+            description: "Monthly error budget will exhaust in less than 2 days"
+
+        - alert: CheckoutAPI_ErrorBudget_SlowBurn
+          expr: |
+            (1 - sli:checkout_api_availability:ratio_rate30m) > (6 * 0.005)
+            and
+            (1 - sli:checkout_api_availability:ratio_rate6h) > (6 * 0.005)
+          for: 15m
+          labels:
+            severity: warning
+            slo: checkout-api-availability
+          annotations:
+            summary: "checkout-api error budget slow burn detected"
+            description: "Elevated error rate sustained over 6 hours"

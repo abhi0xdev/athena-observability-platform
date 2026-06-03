@@ -1,0 +1,5 @@
+tempo:
+  reportingEnabled: false
+
+service:
+  type: ClusterIP
