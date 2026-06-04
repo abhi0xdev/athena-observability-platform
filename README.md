@@ -138,6 +138,33 @@ athena-observability-platform/
 
 ---
 
+## Screenshots 
+
+<img width="1037" height="450" alt="image (6)" src="https://github.com/user-attachments/assets/5eab5340-ab61-49cb-a787-522237f6af63" />
+
+---
+
+<img width="1914" height="852" alt="image (7)" src="https://github.com/user-attachments/assets/c799e67a-ca49-42af-b5b2-cb8099964321" />
+
+---
+
+<img width="1885" height="847" alt="image (8)" src="https://github.com/user-attachments/assets/a701b2bd-8c9e-4225-8264-84a3397838af" />
+
+---
+
+<img width="1919" height="876" alt="image (9)" src="https://github.com/user-attachments/assets/94b70b91-0dcd-42c6-9dbb-64e1c9603706" />
+
+---
+
+<img width="1919" height="877" alt="image (10)" src="https://github.com/user-attachments/assets/781f5455-03a1-4610-82db-fabd922cd962" />
+
+---
+
+<img width="1851" height="818" alt="image (12)" src="https://github.com/user-attachments/assets/30f1b64c-7bc6-43c6-9e18-97b1898dd6b8" />
+
+
+---
+
 ## 📚 References
 
 - [Google SRE Workbook — Alerting on SLOs](https://sre.google/workbook/alerting-on-slos/)
