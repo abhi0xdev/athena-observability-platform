@@ -32,19 +32,6 @@ designed and debugged an observability platform."*
 
 ---
 
-## 🎬 Demo
-
-📹 **[3-minute walkthrough video](YOUR-YOUTUBE-LINK)** *(optional — add if recorded)*
-
-| | |
-|---|---|
-| ![dashboard](docs/screenshots/red-dashboard.png) | ![trace](docs/screenshots/distributed-trace.png) |
-| *RED-method service dashboard* | *Distributed trace across services* |
-| ![alert](docs/screenshots/burn-rate-alert.png) | ![logs](docs/screenshots/loki-logs.png) |
-| *Burn-rate alert firing* | *Correlated logs in Loki* |
-
----
-
 ## 🏛 Architecture (high level)
 
 <img width="1472" height="1764" alt="image" src="https://github.com/user-attachments/assets/a202be88-f910-4b4b-aac4-1ba500c2f154" />
